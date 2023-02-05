@@ -1,0 +1,36 @@
+####Display details about storage 
+$lsblk
+
+####Check for if there is any free space
+$parted -s -a opt /dev/sda "print free"
+
+####Check Partitions 
+$parted /dev/sda
+
+####Display the partition table, available devices, free space, all found partitions, or a particular partition.Type:
+p
+
+####If there is any extra space left without not included in the partition or you want to shrink a partition.
+
+resizepart 3     #3 is the number from previos command, NUMBER of the partition you want to resize.
+end () ***GB     #Specify the size you want
+quit		 #exit
+
+
+####Run this command on the partition you want to resize. 
+$pvresize /dev/sda3
+
+
+####Find information about volume groups
+$vgs
+
+####Get the path for partition using
+blkid
+
+####Specify the size you wnat to add with existing like +750GB
+$lvextend -L +750G /dev/mapp**/**
+
+$resize2fs /dev/mapp**/**
+
+
+####reboot
